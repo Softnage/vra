@@ -1,0 +1,154 @@
+.welcome {
+    padding: 0 5%;
+    margin-block: 50px;
+}
+
+.about {
+    padding: 0 5%;
+    margin-block: 50px;
+}
+
+.one- {
+    background-color: #f9f9ff;
+    padding: 0 5%;
+    padding-block: 80px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.one-:hover {
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.school {
+    margin: 0 5%;
+    margin-block: 100px;
+    background-color: #eee;
+    padding-block: 50px;
+}
+
+.school:hover {
+    background-color: #f9f9ff;
+}
+
+.mm {
+    padding-left: 50px;
+    text-align: left;
+}
+
+.down {
+    margin-bottom: 100px;
+}
+
+.list-group {
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.staff {
+    margin-block: 70px;
+    padding: 0 5%;
+}
+
+.staff h2 {
+    color: #123156;
+}
+
+.heading {
+    margin-top: 50px;
+    margin-bottom: -100px;
+    padding: 0 5%;
+}
+
+.news {
+    margin-top: 50px;
+    padding: 0 5%;
+    margin-bottom: 100px;
+}
+
+.news h6,
+h2 {
+    color: #123156;
+}
+
+.news-one h6 {
+    color: #123156;
+    margin-top: 30px;
+}
+
+.news-one h5 {
+    color: #123156;
+    margin-top: 20px;
+}
+
+.news-two h5 {
+    margin-top: 20px;
+    color: #123156;
+}
+
+.news-two h6 {
+    margin-top: 30px;
+    color: #123156;
+}
+
+.read-more a {
+    color: #123156;
+}
+
+.photo-gallery {
+    margin-top: 50px;
+    padding: 0 5%;
+    margin-bottom: 150px;
+}
+
+.contact-details {
+    padding: 0 5%;
+}
+
+.loc {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.c_location {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    color: #123156;
+    transition: width 1s;
+}
+
+.c_location:hover {
+    color: #fff;
+    background-color: #123156;
+    width: 150px;
+    height: 150px;
+    border: 50%;
+}
+.loc{
+    padding-block: 50px;
+}
+
+.contact-page{
+    padding: 0 5%;
+    margin-bottom: 150px;
+}
+
+.form-control--{
+    height: 200px;
+}
+img{
+    width: 100%;
+}
