@@ -24,7 +24,8 @@ use App\Models\Event;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
-    return view('news.index');
+    $news = News::all();
+    return view('news.index', compact('news'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/event/{event}', [EventController::class, 'details'])->name('details');

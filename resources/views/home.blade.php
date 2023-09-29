@@ -650,68 +650,73 @@
             </div>
 
         </section>
-        <div class="news">
-            <h6>THE LATEST NEWS, EVENTS, AND UPDATES AT VRA INTERNATIONAL SCHOOLS</h6>
-            <h2>EVENTS</h2>
-            <div class="row gy-5">
-                <div class="col-md-4 news-one">
+        @if ($events->count() > 0)
+            <div class="news">
+                <h6>THE LATEST NEWS, EVENTS, AND UPDATES AT VRA INTERNATIONAL SCHOOLS</h6>
+                <h2>EVENTS</h2>
+                <div class="row gy-5">
+                    <div class="col-md-4 news-one">
 
-                    <style>
-                        .read-more {
-                            margin-top: 30px;
-                        }
+                        <style>
+                            .read-more {
+                                margin-top: 30px;
+                            }
 
-                        .read-more a {
-                            background-color: #123156;
-                            padding: 15px 35px;
-                            color: aliceblue;
-                            text-decoration: none;
-                            border-radius: 5px;
-                        }
-                    </style>
+                            .read-more a {
+                                background-color: #123156;
+                                padding: 15px 35px;
+                                color: aliceblue;
+                                text-decoration: none;
+                                border-radius: 5px;
+                            }
+                        </style>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slidde">
-                <div #swiperRef="" class="swiper mySwiper9" style="padding: 0 1rem">
-                    <div class="swiper-wrapper">
-                        @if ($events->count() > 0)
-                            @foreach ($events as $event)
-                                <div class="swiper-slide">
-                                    <a href="{{ route('details', $event->id) }}" class="event-link">
-                                        <div class="card event-slide">
-                                            <div class="card-image"
-                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
-                                            </div>
-                                            <div class="title">
-                                                <h1 style="font-size: 25px ">{{ $event->title }}</h1>
-                                            </div>
-                                            <p class="date" style="font-size: 12px; text-align:center">
-                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
-                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
-                                            </p>
-                                            <div class="message">
-                                                <p style="font-size: 16px">
-                                                    {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                <div class="slidde">
+                    <div #swiperRef="" class="swiper mySwiper9" style="padding: 0 1rem">
+                        <div class="swiper-wrapper">
+                            @if ($events->count() > 0)
+                                @foreach ($events as $event)
+                                    <div class="swiper-slide">
+                                        <a href="{{ route('details', $event->id) }}" class="event-link">
+                                            <div class="card event-slide">
+                                                <div class="card-image"
+                                                    style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
+                                                </div>
+                                                <div class="title">
+                                                    <h1 style="font-size: 25px ">{{ $event->title }}</h1>
+                                                </div>
+                                                <p class="date" style="font-size: 12px; text-align:center">
+                                                    {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
+                                                    -
+                                                    {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
                                                 </p>
+                                                <div class="message">
+                                                    <p style="font-size: 16px">
+                                                        {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                        @else
-                            <p></p>
-                        @endif
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @else
+                                <p></p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <Section>
+        @endif
+        <Section style="margin-bottom: 4rem">
             <div class="admission-open" style="margin-top: 50px;">
-                <h1 class="text-center">VRA Schools Admission Opens</h1>
-                <p class="text-center">
-                    Enroll your child for a transformative educational experience.
-                </p>
+                @foreach ($admissionNotices as $admissionNotice)
+                    <div class="bjad">
+                        <h1 class="text-center">{{ $admissionNotice->title }}</h1>
+                        <p class="moving-textt" data-description="{{ $admissionNotice->description }}"></p>
+                    </div>
+                @endforeach
                 @foreach ($admissionForms as $admissionForm)
                     <a href="{{ asset('storage/' . $admissionForm->file_path) }}" target="_blank"
                         class="admission-">
@@ -721,40 +726,42 @@
             </div>
         </Section>
         <section>
-            <div class="title">
-                <h1 style="margin-bottom: -3rem">News</h1>
-            </div>
-            <div class="slidde">
-                <div #swiperRef="" class="swiper mySwiper8" style="padding: 0 1rem">
-                    <div class="swiper-wrapper">
-                        @if ($news->count() > 0)
-                            @foreach ($news as $new)
-                                <div class="swiper-slide">
-                                    <div class="card event-slide">
-                                        <a href="{{ route('newsDetails', $new->id) }}" class="event-link">
-                                            <div class="card-image"
-                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
-                                            </div>
-                                            <div class="">
-                                                <h1 style="font-size: 25px; text-align:center; margin-top: 1rem">
-                                                    {{ $new->title }}</h1>
-                                            </div>
-                                            <div class="message">
-                                                <p style="font-size: 16px">
-                                                    {{ Illuminate\Support\Str::limit($new->content, 100) }}
-                                                </p>
-                                            </div>
-                                        </a>
+            @if ($news->count() > 0)
+                <div class="title">
+                    <h1 style="margin-bottom: -3rem">News</h1>
+                </div>
+                <div class="slidde">
+                    <div #swiperRef="" class="swiper mySwiper8" style="padding: 0 1rem">
+                        <div class="swiper-wrapper">
+                            @if ($news->count() > 0)
+                                @foreach ($news as $new)
+                                    <div class="swiper-slide">
+                                        <div class="card event-slide">
+                                            <a href="{{ route('newsDetails', $new->id) }}" class="event-link">
+                                                <div class="card-image"
+                                                    style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
+                                                </div>
+                                                <div class="">
+                                                    <h1 style="font-size: 25px; text-align:center; margin-top: 1rem">
+                                                        {{ $new->title }}</h1>
+                                                </div>
+                                                <div class="message">
+                                                    <p style="font-size: 16px">
+                                                        {{ Illuminate\Support\Str::limit($new->content, 100) }}
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <p></p>
-                        @endif
+                                @endforeach
+                            @else
+                                <p></p>
+                            @endif
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </section>
 
         <section>
